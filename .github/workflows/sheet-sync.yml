@@ -35,6 +35,23 @@ jobs:
           printf '%s' "$SA_JSON_BASE64" | base64 --decode > credentials.json
           chmod 600 credentials.json
 
+      - name: Debug env & credentials
+        env:
+          SA_JSON_BASE64: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON_B64 }}
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+        run: |
+          echo "SA_JSON_BASE64 present: ${SA_JSON_BASE64:+yes}"
+          echo "GOOGLE_SHEET_ID present: ${GOOGLE_SHEET_ID:+yes}"
+          echo "Listing repo files:"
+          ls -la
+          if [ -f credentials.json ]; then
+            echo "credentials.json size: $(wc -c < credentials.json) bytes"
+            echo "credentials.json sha256: $(sha256sum credentials.json | awk '{print $1}')"
+          else
+            echo "credentials.json missing"
+            exit 1
+          fi
+
       - name: Run sheet append
         env:
           GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
