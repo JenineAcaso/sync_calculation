@@ -1,6 +1,8 @@
 name: Google Sheets sync
 
 on:
+  push:
+    branches: [ main ]
   schedule:
     - cron: '*/30 * * * *' # every 30 minutes
   workflow_dispatch: {}
