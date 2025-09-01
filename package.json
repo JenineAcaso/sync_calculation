@@ -1,0 +1,26 @@
+{
+  "name": "sync_calculation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "VJBano",
+  "type":"module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "main": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JenineAcaso/sync_calculation.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JenineAcaso/sync_calculation/issues"
+  },
+  "homepage": "https://github.com/JenineAcaso/sync_calculation#readme",
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "googleapis": "^159.0.0"
+  }
+}
